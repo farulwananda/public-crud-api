@@ -26,10 +26,7 @@ class ProductController extends Controller implements HasMiddleware
      */
     public function index()
     {
-       return response()->json([
-            'message' => 'Products fetched successfully',
-            'data' => ProductResource::collection(Product::latest()->paginate(25))
-        ], 200);
+      return ProductResource::collection(Product::latest()->paginate(25));
     }
 
     /**

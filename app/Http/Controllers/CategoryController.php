@@ -23,10 +23,7 @@ class CategoryController extends Controller implements HasMiddleware
      */
     public function index()
     {
-        return response()->json([
-            'message' => 'Categories fetched successfully',
-            'data' => CategoryResource::collection(Category::latest()->paginate(25)),
-        ], 200);
+        return CategoryResource::collection(Category::latest()->paginate(25));
     }
 
     /**
